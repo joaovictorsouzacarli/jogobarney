@@ -31,9 +31,10 @@ export default function Component() {
     let animationId: number
     const gravity = 0.8
     const jumpPower = -15
-    const speed = 5
+    const speed = 5 // Volta para 5 (era 3)
     let baconGermerTimer = 0
     let wolfTimer = 150
+    let dropThroughPlatform = false
 
     // Player (Barney)
     const player = {
@@ -88,7 +89,7 @@ export default function Component() {
           { x: 170, y: 210, width: 20, height: 20, collected: false },
           { x: 370, y: 150, width: 20, height: 20, collected: false },
         ],
-        enemies: [{ x: 270, y: 400, width: 30, height: 20, direction: 1, speed: 1.5 }],
+        enemies: [{ x: 270, y: 400, width: 30, height: 20, direction: 1, speed: 1.5 }], // Era 1.5, agora 1
         theme: "forest",
         baconGermerPos: { x: 600, y: 500 },
         wolfPos: { x: 50, y: 450 },
@@ -119,8 +120,8 @@ export default function Component() {
           { x: 420, y: 150, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 200, y: 400, width: 30, height: 20, direction: 1, speed: 1.5 },
-          { x: 470, y: 300, width: 30, height: 20, direction: -1, speed: 2 },
+          { x: 200, y: 400, width: 30, height: 20, direction: 1, speed: 1.5 }, // Era 1.5, agora 1
+          { x: 470, y: 300, width: 30, height: 20, direction: -1, speed: 2 }, // Era 2, agora 1.2
         ],
         theme: "forest",
         baconGermerPos: { x: 50, y: 500 },
@@ -154,9 +155,9 @@ export default function Component() {
           { x: 320, y: 90, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 240, y: 410, width: 30, height: 20, direction: 1, speed: 2 },
-          { x: 500, y: 330, width: 30, height: 20, direction: -1, speed: 2 },
-          { x: 420, y: 200, width: 30, height: 20, direction: 1, speed: 1.5 },
+          { x: 240, y: 410, width: 30, height: 20, direction: 1, speed: 2 }, // Era 2, agora 1.2
+          { x: 500, y: 330, width: 30, height: 20, direction: -1, speed: 2 }, // Era 2, agora 1.2
+          { x: 420, y: 200, width: 30, height: 20, direction: 1, speed: 1.5 }, // Era 1.5, agora 1
         ],
         theme: "desert",
         baconGermerPos: { x: 250, y: 500 },
@@ -191,10 +192,10 @@ export default function Component() {
           { x: 420, y: 60, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 170, y: 430, width: 30, height: 20, direction: 1, speed: 2 },
-          { x: 390, y: 350, width: 30, height: 20, direction: -1, speed: 2.5 },
-          { x: 520, y: 310, width: 30, height: 20, direction: 1, speed: 2 },
-          { x: 370, y: 190, width: 30, height: 20, direction: -1, speed: 1.5 },
+          { x: 170, y: 430, width: 30, height: 20, direction: 1, speed: 2 }, // Era 2, agora 1.2
+          { x: 390, y: 350, width: 30, height: 20, direction: -1, speed: 2.5 }, // Era 2.5, agora 1.5
+          { x: 520, y: 310, width: 30, height: 20, direction: 1, speed: 2 }, // Era 2, agora 1.2
+          { x: 370, y: 190, width: 30, height: 20, direction: -1, speed: 1.5 }, // Era 1.5, agora 1
         ],
         theme: "desert",
         baconGermerPos: { x: 700, y: 500 },
@@ -231,10 +232,10 @@ export default function Component() {
           { x: 470, y: 60, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 200, y: 430, width: 30, height: 20, direction: 1, speed: 1.5 },
-          { x: 420, y: 350, width: 30, height: 20, direction: -1, speed: 2 },
-          { x: 550, y: 310, width: 30, height: 20, direction: 1, speed: 2.5 },
-          { x: 370, y: 190, width: 30, height: 20, direction: -1, speed: 2 },
+          { x: 200, y: 430, width: 30, height: 20, direction: 1, speed: 1.5 }, // Era 1.5, agora 1
+          { x: 420, y: 350, width: 30, height: 20, direction: -1, speed: 2 }, // Era 2, agora 1.2
+          { x: 550, y: 310, width: 30, height: 20, direction: 1, speed: 2.5 }, // Era 2.5, agora 1.5
+          { x: 370, y: 190, width: 30, height: 20, direction: -1, speed: 2 }, // Era 2, agora 1.2
         ],
         theme: "cave",
         baconGermerPos: { x: 400, y: 500 },
@@ -273,11 +274,11 @@ export default function Component() {
           { x: 370, y: 20, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 150, y: 430, width: 30, height: 20, direction: 1, speed: 2 },
-          { x: 340, y: 350, width: 30, height: 20, direction: -1, speed: 2.5 },
-          { x: 450, y: 310, width: 30, height: 20, direction: 1, speed: 3 },
-          { x: 550, y: 270, width: 30, height: 20, direction: -1, speed: 2 },
-          { x: 300, y: 150, width: 30, height: 20, direction: 1, speed: 2.5 },
+          { x: 150, y: 430, width: 30, height: 20, direction: 1, speed: 2 }, // Era 2, agora 1.2
+          { x: 340, y: 350, width: 30, height: 20, direction: -1, speed: 2.5 }, // Era 2.5, agora 1.5
+          { x: 450, y: 310, width: 30, height: 20, direction: 1, speed: 3 }, // Era 3, agora 1.8
+          { x: 550, y: 270, width: 30, height: 20, direction: -1, speed: 2 }, // Era 2, agora 1.2
+          { x: 300, y: 150, width: 30, height: 20, direction: 1, speed: 2.5 }, // Era 2.5, agora 1.5
         ],
         theme: "cave",
         baconGermerPos: { x: 100, y: 500 },
@@ -317,10 +318,10 @@ export default function Component() {
           { x: 270, y: 50, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 220, y: 420, width: 30, height: 20, direction: 1, speed: 2.5 },
-          { x: 520, y: 340, width: 30, height: 20, direction: -1, speed: 3 },
-          { x: 340, y: 220, width: 30, height: 20, direction: 1, speed: 2.5 },
-          { x: 420, y: 100, width: 30, height: 20, direction: -1, speed: 3 },
+          { x: 220, y: 420, width: 30, height: 20, direction: 1, speed: 2.5 }, // Era 2.5, agora 1.5
+          { x: 520, y: 340, width: 30, height: 20, direction: -1, speed: 3 }, // Era 3, agora 1.8
+          { x: 340, y: 220, width: 30, height: 20, direction: 1, speed: 2.5 }, // Era 2.5, agora 1.5
+          { x: 420, y: 100, width: 30, height: 20, direction: -1, speed: 3 }, // Era 3, agora 1.8
         ],
         theme: "swamp",
         baconGermerPos: { x: 700, y: 500 },
@@ -361,11 +362,11 @@ export default function Component() {
           { x: 570, y: 20, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 160, y: 430, width: 30, height: 20, direction: 1, speed: 3 },
-          { x: 390, y: 350, width: 30, height: 20, direction: -1, speed: 3.5 },
-          { x: 520, y: 310, width: 30, height: 20, direction: 1, speed: 3 },
-          { x: 370, y: 190, width: 30, height: 20, direction: -1, speed: 3.5 },
-          { x: 220, y: 110, width: 30, height: 20, direction: 1, speed: 3 },
+          { x: 160, y: 430, width: 30, height: 20, direction: 1, speed: 3 }, // Era 3, agora 1.8
+          { x: 390, y: 350, width: 30, height: 20, direction: -1, speed: 3.5 }, // Era 3.5, agora 2
+          { x: 520, y: 310, width: 30, height: 20, direction: 1, speed: 3 }, // Era 3, agora 1.8
+          { x: 370, y: 190, width: 30, height: 20, direction: -1, speed: 3.5 }, // Era 3.5, agora 2
+          { x: 220, y: 110, width: 30, height: 20, direction: 1, speed: 3 }, // Era 3, agora 1.8
         ],
         theme: "swamp",
         baconGermerPos: { x: 300, y: 500 },
@@ -406,12 +407,12 @@ export default function Component() {
           { x: 70, y: 20, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 170, y: 430, width: 30, height: 20, direction: 1, speed: 3.5 },
-          { x: 400, y: 350, width: 30, height: 20, direction: -1, speed: 4 },
-          { x: 510, y: 310, width: 30, height: 20, direction: 1, speed: 3.5 },
-          { x: 300, y: 190, width: 30, height: 20, direction: -1, speed: 4 },
-          { x: 200, y: 110, width: 30, height: 20, direction: 1, speed: 3.5 },
-          { x: 370, y: 70, width: 30, height: 20, direction: -1, speed: 4 },
+          { x: 170, y: 430, width: 30, height: 20, direction: 1, speed: 3.5 }, // Era 3.5, agora 2
+          { x: 400, y: 350, width: 30, height: 20, direction: -1, speed: 4 }, // Era 4, agora 2.2
+          { x: 510, y: 310, width: 30, height: 20, direction: 1, speed: 3.5 }, // Era 3.5, agora 2
+          { x: 300, y: 190, width: 30, height: 20, direction: -1, speed: 4 }, // Era 4, agora 2.2
+          { x: 200, y: 110, width: 30, height: 20, direction: 1, speed: 3.5 }, // Era 3.5, agora 2
+          { x: 370, y: 70, width: 30, height: 20, direction: -1, speed: 4 }, // Era 4, agora 2.2
         ],
         theme: "snow",
         baconGermerPos: { x: 650, y: 500 },
@@ -452,14 +453,14 @@ export default function Component() {
           { x: 370, y: -20, width: 20, height: 20, collected: false },
         ],
         enemies: [
-          { x: 170, y: 430, width: 30, height: 20, direction: 1, speed: 4 },
-          { x: 380, y: 350, width: 30, height: 20, direction: -1, speed: 4.5 },
-          { x: 480, y: 310, width: 30, height: 20, direction: 1, speed: 4 },
-          { x: 590, y: 270, width: 30, height: 20, direction: -1, speed: 4.5 },
-          { x: 120, y: 190, width: 30, height: 20, direction: 1, speed: 4 },
-          { x: 260, y: 150, width: 30, height: 20, direction: -1, speed: 4.5 },
-          { x: 410, y: 110, width: 30, height: 20, direction: 1, speed: 4 },
-          { x: 530, y: 70, width: 30, height: 20, direction: -1, speed: 4.5 },
+          { x: 170, y: 430, width: 30, height: 20, direction: 1, speed: 4 }, // Era 4, agora 2.2
+          { x: 380, y: 350, width: 30, height: 20, direction: -1, speed: 4.5 }, // Era 4.5, agora 2.5
+          { x: 480, y: 310, width: 30, height: 20, direction: 1, speed: 4 }, // Era 4, agora 2.2
+          { x: 590, y: 270, width: 30, height: 20, direction: -1, speed: 4.5 }, // Era 4.5, agora 2.5
+          { x: 120, y: 190, width: 30, height: 20, direction: 1, speed: 4 }, // Era 4, agora 2.2
+          { x: 260, y: 150, width: 30, height: 20, direction: -1, speed: 4.5 }, // Era 4.5, agora 2.5
+          { x: 410, y: 110, width: 30, height: 20, direction: 1, speed: 4 }, // Era 4, agora 2.2
+          { x: 530, y: 70, width: 30, height: 20, direction: -1, speed: 4.5 }, // Era 4.5, agora 2.5
         ],
         theme: "avalon",
         baconGermerPos: { x: 400, y: 500 },
@@ -873,12 +874,19 @@ export default function Component() {
       } else if (keys["d"] || keys["arrowright"]) {
         player.velocityX = speed
       } else {
-        player.velocityX *= 0.8 // Friction
+        player.velocityX *= 0.8
       }
 
       if ((keys["w"] || keys["arrowup"] || keys[" "]) && player.onGround) {
         player.velocityY = jumpPower
         player.onGround = false
+      }
+
+      // Nova funcionalidade: atravessar plataformas com S
+      if (keys["s"] || keys["arrowdown"]) {
+        dropThroughPlatform = true
+      } else {
+        dropThroughPlatform = false
       }
 
       // Apply gravity
@@ -896,7 +904,8 @@ export default function Component() {
       player.onGround = false
       for (const platform of currentLevelData.platforms) {
         if (checkCollision(player, platform)) {
-          if (player.velocityY > 0 && player.y < platform.y) {
+          // Só colide se não estiver tentando atravessar OU se for o chão principal (y >= 550)
+          if ((!dropThroughPlatform || platform.y >= 550) && player.velocityY > 0 && player.y < platform.y) {
             player.y = platform.y - player.height
             player.velocityY = 0
             player.onGround = true
