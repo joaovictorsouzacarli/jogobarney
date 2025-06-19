@@ -904,8 +904,11 @@ export default function Component() {
       player.onGround = false
       for (const platform of currentLevelData.platforms) {
         if (checkCollision(player, platform)) {
-          // Só colide se não estiver tentando atravessar OU se for o chão principal (y >= 550)
-          if ((!dropThroughPlatform || platform.y >= 550) && player.velocityY > 0 && player.y < platform.y) {
+          // Identifica o chão principal (primeira plataforma da lista, geralmente a mais baixa e larga)
+          const isMainGround = currentLevelData.platforms.indexOf(platform) === 0
+
+          // Só colide se não estiver tentando atravessar OU se for o chão principal
+          if ((!dropThroughPlatform || isMainGround) && player.velocityY > 0 && player.y < platform.y) {
             player.y = platform.y - player.height
             player.velocityY = 0
             player.onGround = true
@@ -1224,7 +1227,9 @@ export default function Component() {
           <kbd className="bg-gray-200 px-2 py-1 rounded">Setas</kbd> para mover •
           <kbd className="bg-gray-200 px-2 py-1 rounded">W</kbd>,{" "}
           <kbd className="bg-gray-200 px-2 py-1 rounded">Seta ↑</kbd> ou{" "}
-          <kbd className="bg-gray-200 px-2 py-1 rounded">Espaço</kbd> para pular
+          <kbd className="bg-gray-200 px-2 py-1 rounded">Espaço</kbd> para pular •
+          <kbd className="bg-gray-200 px-2 py-1 rounded">S</kbd> ou{" "}
+          <kbd className="bg-gray-200 px-2 py-1 rounded">Seta ↓</kbd> para atravessar plataformas
         </p>
         <p className="text-sm text-gray-600 mt-2">
           🔮 Colete TODOS os cristais para completar cada fase • ⚔️ Evite inimigos • 🥓 Converse com Bacon Germer
